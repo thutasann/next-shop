@@ -8,6 +8,11 @@ body,
   height: 100%;
 }
 
+.cl-internal-b3fm6y,
+.cl-internal-wkkub3 {
+  display: none !important;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
