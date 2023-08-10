@@ -1,9 +1,17 @@
-import { UserButton } from '@clerk/nextjs'
+'use client'
+
+import { useStoreModal } from '@/hooks/use-store-modal'
+import { useEffect } from 'react'
 
 export default function SetupPage() {
-  return (
-    <div className='flex flex-col items-center justify-self-center gap-2'>
-      <UserButton afterSignOutUrl='/' />
-    </div>
-  )
+  const onOpen = useStoreModal(state => state.onOpen)
+  const isOpen = useStoreModal(state => state.isOpen)
+
+  useEffect(() => {
+    if (!isOpen) {
+      onOpen()
+    }
+  }, [isOpen, onOpen])
+
+  return null
 }
