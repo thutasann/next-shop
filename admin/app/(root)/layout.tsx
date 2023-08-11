@@ -12,7 +12,7 @@ export default async function SetupLayout({ children }: { children: React.ReactN
 
   const store = await prismadb.store.findFirst({
     where: {
-      userID: userId,
+      userId,
     },
   })
 

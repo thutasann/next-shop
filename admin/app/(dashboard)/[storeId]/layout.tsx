@@ -12,7 +12,7 @@ export default async function DashbaordLayout({ children, params }: { children: 
   const store = await prismadb.store.findFirst({
     where: {
       id: params.storeId,
-      userID: userId,
+      userId,
     },
   })
 
