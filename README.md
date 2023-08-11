@@ -9,6 +9,7 @@ This is the Ecommerce Web app including Admin Dashboard
 - mongodb
 - clerk
 - shadcn-ui
+- tailwind
 
 ## Preview URL:
 
