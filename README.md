@@ -6,7 +6,7 @@ This is the Ecommerce Web app including Admin Dashboard
 
 - nextjs (app dir)
 - prisma
-- mySql
+- mongodb
 - clerk
 - shadcn-ui
 
