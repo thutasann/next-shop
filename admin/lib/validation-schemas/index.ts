@@ -7,3 +7,8 @@ export const StoreModalFormSchema = z.object({
 export const SettingFormSchema = z.object({
   name: z.string().min(1),
 })
+
+export const BillboardFormSchema = z.object({
+  label: z.string().min(1),
+  imageUrl: z.string().min(1),
+})
