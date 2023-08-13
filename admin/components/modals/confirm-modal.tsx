@@ -29,7 +29,7 @@ function ConfirmModal({ isOpen, onClose, onConfirm, loading }: IConfirmModal) {
           Cancel
         </Button>
         <Button disabled={loading} variant='destructive' onClick={onConfirm}>
-          Continue
+          {loading ? 'Processing...' : 'Continue'}
         </Button>
       </div>
     </Modal>

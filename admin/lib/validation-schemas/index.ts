@@ -17,3 +17,8 @@ export const CategoryFormSchema = z.object({
   name: z.string().min(1),
   billboardId: z.string().min(1),
 })
+
+export const SizeFormSchema = z.object({
+  name: z.string().min(1),
+  value: z.string().min(1),
+})

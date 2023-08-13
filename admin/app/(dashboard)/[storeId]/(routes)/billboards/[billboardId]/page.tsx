@@ -6,7 +6,7 @@ async function BillboardPage({ params }: { params: { billboardId: string } }) {
   const billboard =
     params.billboardId.length < 24
       ? null
-      : await prismadb.billboard.findUniqueOrThrow({
+      : await prismadb.billboard.findUnique({
           where: {
             id: params.billboardId,
           },

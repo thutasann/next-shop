@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { memo } from 'react'
 import { cn } from '@/lib/utils'
 import Link from 'next/link'
 import { useParams, usePathname } from 'next/navigation'
@@ -24,6 +24,11 @@ function MainNav({ className, ...props }: React.HTMLAttributes<HTMLElement>) {
       href: `/${params.storeId}/categories`,
       label: 'Categories',
       active: pathname.includes(`/${params.storeId}/categories`),
+    },
+    {
+      href: `/${params.storeId}/sizes`,
+      label: 'Sizes',
+      active: pathname.includes(`/${params.storeId}/sizes`),
     },
     {
       href: `/${params.storeId}/settings`,
@@ -50,4 +55,4 @@ function MainNav({ className, ...props }: React.HTMLAttributes<HTMLElement>) {
   )
 }
 
-export default MainNav
+export default memo(MainNav)
