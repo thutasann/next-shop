@@ -23,6 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <ModalProvider />
           <ToastProvider />
           {children}
+          <div className='h-[50px]' />
         </body>
       </html>
     </ClerkProvider>

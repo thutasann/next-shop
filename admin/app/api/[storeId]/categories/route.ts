@@ -7,18 +7,18 @@ export async function POST(req: Request, { params }: { params: { storeId: string
     const { userId } = auth()
     const body = await req.json()
 
-    const { label, imageUrl } = body
+    const { name, billboardId } = body
 
     if (!userId) {
       return new NextResponse(`Unauthenticated`, { status: 401 })
     }
 
-    if (!label) {
-      return new NextResponse(`Label is required`, { status: 400 })
+    if (!name) {
+      return new NextResponse(`Name is required`, { status: 400 })
     }
 
-    if (!imageUrl) {
-      return new NextResponse(`ImageUrl is required`, { status: 400 })
+    if (!billboardId) {
+      return new NextResponse(`BillboardID is required`, { status: 400 })
     }
 
     if (!params.storeId) {
@@ -38,17 +38,17 @@ export async function POST(req: Request, { params }: { params: { storeId: string
       })
     }
 
-    const billboard = await prismadb.billboard.create({
+    const category = await prismadb.category.create({
       data: {
-        label,
-        imageUrl,
+        name,
+        billboardId,
         storeId: params.storeId,
       },
     })
 
-    return NextResponse.json(billboard)
+    return NextResponse.json(category)
   } catch (error) {
-    console.error(`BILLBOARD POST ERR =>`, error)
+    console.error(`CATEGORY POST ERR =>`, error)
     return new NextResponse(`Internal error`, {
       status: 500,
     })
@@ -61,15 +61,15 @@ export async function GET(req: Request, { params }: { params: { storeId: string 
       return new NextResponse(`StoreID is required`, { status: 400 })
     }
 
-    const billboards = await prismadb.billboard.findMany({
+    const categories = await prismadb.category.findMany({
       where: {
         storeId: params.storeId,
       },
     })
 
-    return NextResponse.json(billboards)
+    return NextResponse.json(categories)
   } catch (error) {
-    console.error(`BILLBOARD GET ERR =>`, error)
+    console.error(`CATEGORY GET ERR =>`, error)
     return new NextResponse(`Internal error`, {
       status: 500,
     })
