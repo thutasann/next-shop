@@ -23,7 +23,7 @@ export async function GET(req: Request, { params }: { params: { categoryId: stri
   }
 }
 
-export async function PATCH(req: Request, { params }: { params: { storeId: string; caetegoryId: string } }) {
+export async function PATCH(req: Request, { params }: { params: { storeId: string; categoryId: string } }) {
   try {
     const { userId } = auth()
     const body = await req.json()
@@ -42,7 +42,7 @@ export async function PATCH(req: Request, { params }: { params: { storeId: strin
       return new NextResponse('Billboard ID is Required', { status: 400 })
     }
 
-    if (!params.caetegoryId) {
+    if (!params.categoryId) {
       return new NextResponse('Category ID is required', { status: 400 })
     }
 
@@ -61,7 +61,7 @@ export async function PATCH(req: Request, { params }: { params: { storeId: strin
 
     const category = await prismadb.category.updateMany({
       where: {
-        id: params.caetegoryId,
+        id: params.categoryId,
       },
       data: {
         name,
