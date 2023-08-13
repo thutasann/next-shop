@@ -18,7 +18,7 @@ function MainNav({ className, ...props }: React.HTMLAttributes<HTMLElement>) {
     {
       href: `/${params.storeId}/billboards`,
       label: 'Billbaords',
-      active: pathname === `/${params.storeId}/billboards`,
+      active: pathname.includes(`/${params.storeId}/billboards`),
     },
     {
       href: `/${params.storeId}/settings`,

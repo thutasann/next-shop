@@ -33,7 +33,7 @@ function BillboardForm({ initialData }: IBillboardForm) {
   const [loading, setLoading] = useState(false)
 
   const title = initialData ? 'Edit billboard' : 'Create billboard'
-  const description = initialData ? 'Edit a billboard' : 'Ad a new billboard'
+  const description = initialData ? 'Edit a billboard' : 'Add a new billboard'
   const toastMessage = initialData ? 'Billboard updated' : 'Billboard created'
   const action = initialData ? 'Save changes' : 'Create billlboard'
 
@@ -54,6 +54,7 @@ function BillboardForm({ initialData }: IBillboardForm) {
         await axios.post(`/api/${params.storeId}/billboards`, data)
       }
       router.refresh()
+      router.push(`/${params.storeId}/billboards`)
       toast.success(toastMessage)
     } catch (error) {
       toast.error(`Something went wrong`)
