@@ -68,7 +68,7 @@ function BillboardForm({ initialData }: IBillboardForm) {
       setOpen(true)
       await axios.delete(`/api/${params.storeId}/billboards/${params.billboardId}`)
       router.refresh()
-      router.push('/')
+      router.push(`/${params.storeId}/billboards`)
       toast.success('Billboard deleted')
     } catch (error) {
       toast.error('Make sure you removed all categories using this billboard first.')
@@ -82,7 +82,7 @@ function BillboardForm({ initialData }: IBillboardForm) {
     <Fragment>
       <ConfirmModal isOpen={open} onClose={() => setOpen(false)} onConfirm={onDelete} loading={loading} />
       <div className='flex items-center justify-between'>
-        <Heading title={title} description={description} />
+        <Heading isDetail title={title} description={description} />
         {initialData ? (
           <Button variant='destructive' size='sm' onClick={() => setOpen(true)}>
             <BiTrash className='h-4 w-4' />

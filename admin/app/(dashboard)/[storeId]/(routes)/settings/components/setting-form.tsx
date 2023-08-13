@@ -77,20 +77,18 @@ function SettingsForm({ initialData }: ISettingsForm) {
       <Separator />
       <Form {...form}>
         <form onSubmit={form.handleSubmit(handleSubmit)} className='space-y-8 w-full'>
-          <div className='grid grid-cols-12 md:grid-cols-3 gap-8'>
-            <FormField
-              control={form.control}
-              name='name'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Name</FormLabel>
-                  <FormControl>
-                    <Input disabled={loading} placeholder='Store name' {...field} />
-                  </FormControl>
-                </FormItem>
-              )}
-            />
-          </div>
+          <FormField
+            control={form.control}
+            name='name'
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Name</FormLabel>
+                <FormControl>
+                  <Input disabled={loading} placeholder='Store name' {...field} />
+                </FormControl>
+              </FormItem>
+            )}
+          />
           <Button disabled={loading} className='ml-auto' type='submit'>
             Save changes
           </Button>

@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import { GrGallery } from 'react-icons/gr'
 import { BiTrash } from 'react-icons/bi'
+import BlurImage from './blur-image'
 
 interface ImageUploadProps {
   disabled?: boolean
@@ -29,8 +30,6 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ disabled, onChange, onRemove,
     return null
   }
 
-  console.log('values', values)
-
   return (
     <div>
       <div className='mb-4 flex items-center gap-4'>
@@ -41,7 +40,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ disabled, onChange, onRemove,
                 <BiTrash className='h-4 w-4' />
               </Button>
             </div>
-            <Image fill className='object-cover' alt='Image' src={url} />
+            <BlurImage fill className='object-cover' alt='Image' src={url} />
           </div>
         ))}
       </div>
