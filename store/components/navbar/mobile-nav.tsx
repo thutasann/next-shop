@@ -21,7 +21,7 @@ function Mobilenav({ categories }: IMobileNav) {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Categories</NavigationMenuTrigger>
+          <NavigationMenuTrigger className='bg-transparent'>Categories</NavigationMenuTrigger>
           <NavigationMenuContent>
             {categories?.map(cate => (
               <Link href={`/category/${cate.id}`} legacyBehavior passHref>
