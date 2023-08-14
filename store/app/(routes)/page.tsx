@@ -1,12 +1,14 @@
-import BlurImage from '@/components/blur-image'
+import { getBillboards } from '@/actions/get-billboards'
+import Billboard from '@/components/ui/billboard'
+import Container from '@/components/ui/container'
 
-export default function Home() {
+export default async function Home() {
+  const billboard = await getBillboards(`64d89a558bb197637b1da584`)
   return (
-    <BlurImage
-      src='https://alluneed-admin.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fttscloud%2Fimage%2Fupload%2Fv1691980900%2Fytiupbkafnxsgo4l9v6l.avif&w=3840&q=100'
-      alt='blur'
-      width={400}
-      height={400}
-    />
+    <Container>
+      <div className='space-y-10 pb-10'>
+        <Billboard data={billboard} />
+      </div>
+    </Container>
   )
 }

@@ -9,10 +9,25 @@ interface IBlurImage {
   height?: number
   fill?: boolean
   priority?: boolean
+  quality?: number
+  laoding?: 'lazy' | 'eager'
+  fetchPriority?: 'auto' | 'high' | 'low'
 }
 
-// @ts-ignore
-async function BlurImage({ src, alt, fill, className, width, height, priority, ...props }: IBlurImage): any {
+async function BlurImage({
+  src,
+  alt,
+  fill,
+  className,
+  width,
+  height,
+  priority,
+  laoding,
+  quality,
+  fetchPriority,
+  ...props
+}: // @ts-ignore
+IBlurImage): any {
   const myBlurDataUrl = await getBase64(src)
 
   return (
@@ -23,11 +38,13 @@ async function BlurImage({ src, alt, fill, className, width, height, priority, .
       height={height}
       placeholder='blur'
       blurDataURL={myBlurDataUrl}
-      loading='lazy'
+      loading={laoding}
       className={className}
       alt={alt}
       fill={fill}
       priority={priority}
+      quality={quality}
+      fetchPriority={fetchPriority}
     />
   )
 }
