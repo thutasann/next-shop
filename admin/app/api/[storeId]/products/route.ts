@@ -1,10 +1,12 @@
-import prismadb from '@/lib/prismadb'
-import { auth } from '@clerk/nextjs'
 import { NextResponse } from 'next/server'
+import { auth } from '@clerk/nextjs'
+
+import prismadb from '@/lib/prismadb'
 
 export async function POST(req: Request, { params }: { params: { storeId: string } }) {
   try {
     const { userId } = auth()
+
     const body = await req.json()
 
     const { name, price, categoryId, colorId, sizeId, images, isFeatured, isArchived } = body
@@ -49,9 +51,7 @@ export async function POST(req: Request, { params }: { params: { storeId: string
     })
 
     if (!storeByUserId) {
-      return new NextResponse(`Unauthorized`, {
-        status: 405,
-      })
+      return new NextResponse('Unauthorized', { status: 405 })
     }
 
     const product = await prismadb.product.create({
@@ -66,9 +66,7 @@ export async function POST(req: Request, { params }: { params: { storeId: string
         storeId: params.storeId,
         images: {
           createMany: {
-            data: {
-              ...images.map((image: { url: string }) => image),
-            },
+            data: [...images.map((image: { url: string }) => image)],
           },
         },
       },
@@ -76,10 +74,8 @@ export async function POST(req: Request, { params }: { params: { storeId: string
 
     return NextResponse.json(product)
   } catch (error) {
-    console.error(`PRODUCT POST ERR =>`, error)
-    return new NextResponse(`Internal error`, {
-      status: 500,
-    })
+    console.log('[PRODUCTS_POST]', error)
+    return new NextResponse('Internal error', { status: 500 })
   }
 }
 
@@ -89,10 +85,10 @@ export async function GET(req: Request, { params }: { params: { storeId: string 
     const categoryId = searchParams.get('categoryId') || undefined
     const colorId = searchParams.get('colorId') || undefined
     const sizeId = searchParams.get('sizeId') || undefined
-    const isFeatured = searchParams.get('isFeatured') || undefined
+    const isFeatured = searchParams.get('isFeatured')
 
     if (!params.storeId) {
-      return new NextResponse(`StoreID is required`, { status: 400 })
+      return new NextResponse('Store id is required', { status: 400 })
     }
 
     const products = await prismadb.product.findMany({
@@ -117,9 +113,7 @@ export async function GET(req: Request, { params }: { params: { storeId: string 
 
     return NextResponse.json(products)
   } catch (error) {
-    console.error(`PRODUCT GET ERR =>`, error)
-    return new NextResponse(`Internal error`, {
-      status: 500,
-    })
+    console.log('[PRODUCTS_GET]', error)
+    return new NextResponse('Internal error', { status: 500 })
   }
 }

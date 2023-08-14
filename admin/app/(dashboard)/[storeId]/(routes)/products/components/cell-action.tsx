@@ -3,7 +3,7 @@
 import { Button } from '@/components/ui/button'
 import { DropdownMenu, DropdownMenuLabel, DropdownMenuContent, DropdownMenuTrigger, DropdownMenuItem } from '@/components/ui/dropdown-menu'
 import React, { useState } from 'react'
-import { BillboardColumn } from './columns'
+import { ProductColumn } from './columns'
 import { IoIosMore } from 'react-icons/io'
 import { AiOutlineEdit } from 'react-icons/ai'
 import { BiCopy, BiTrash } from 'react-icons/bi'
@@ -13,7 +13,7 @@ import axios from 'axios'
 import ConfirmModal from '@/components/modals/confirm-modal'
 
 interface ICellAction {
-  data: BillboardColumn
+  data: ProductColumn
 }
 
 function CellAction({ data }: ICellAction) {
@@ -24,15 +24,15 @@ function CellAction({ data }: ICellAction) {
 
   const handleCopy = (id: string) => {
     navigator.clipboard.writeText(id)
-    toast.success('Billboard ID copied to clipboard')
+    toast.success('Product ID copied to clipboard')
   }
 
   const onDelete = async () => {
     try {
       setOpen(true)
-      await axios.delete(`/api/${params.storeId}/billboards/${data.id}`)
+      await axios.delete(`/api/${params.storeId}/products/${data.id}`)
       router.refresh()
-      toast.success('Billboard deleted')
+      toast.success('Product deleted')
     } catch (error) {
       toast.error('Make sure you removed all categories using this billboard first.')
     } finally {
@@ -57,7 +57,7 @@ function CellAction({ data }: ICellAction) {
             <BiCopy className='mr-2 h-4 w-4' />
             Copy Id
           </DropdownMenuItem>
-          <DropdownMenuItem className='cursor-pointer' onClick={() => router.push(`/${params.storeId}/billboards/${data.id}`)}>
+          <DropdownMenuItem className='cursor-pointer' onClick={() => router.push(`/${params.storeId}/products/${data.id}`)}>
             <AiOutlineEdit className='mr-2 h-4 w-4' />
             Update
           </DropdownMenuItem>
