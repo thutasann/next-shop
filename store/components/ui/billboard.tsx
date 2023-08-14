@@ -6,8 +6,6 @@ interface IBillboard {
   data: BillboardType
 }
 
-export const revalidate = 0
-
 function Billboard({ data }: IBillboard) {
   return (
     <div className='p-4 sm:p-6 lg:p-8 rounded-xl overflow-hidden'>
