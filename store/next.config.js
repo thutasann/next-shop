@@ -1,4 +1,8 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  images: {
+    domains: ['alluneed-admin.vercel.app'],
+  },
+}
 
 module.exports = nextConfig
