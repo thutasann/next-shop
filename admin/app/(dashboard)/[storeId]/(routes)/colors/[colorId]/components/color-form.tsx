@@ -80,7 +80,7 @@ export const ColorForm: React.FC<ColorFormProps> = ({ initialData }) => {
     <>
       <ConfirmModal isOpen={open} onClose={() => setOpen(false)} onConfirm={onDelete} loading={loading} />
       <div className='flex items-center justify-between'>
-        <Heading title={title} description={description} />
+        <Heading isDetail title={title} description={description} />
         {initialData && (
           <Button disabled={loading} variant='destructive' size='sm' onClick={() => setOpen(true)}>
             <BsTrash className='h-4 w-4' />
