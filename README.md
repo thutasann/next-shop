@@ -10,6 +10,7 @@ This is the Ecommerce Web app including Admin Dashboard
 - clerk
 - shadcn-ui
 - tailwind
+- stripe
 
 ## Preview URL:
 

@@ -15,7 +15,7 @@ interface IMobileFilters {
 function MobileFilters({ sizes, colors }: IMobileFilters) {
   return (
     <Sheet>
-      <SheetTrigger className='flex items-center gap-3 rounded-full bg-black border-transparent px-5 py-3 disabled:cursor-not-allowed disabled:opacity-50 text-white font-semibold hover:opacity-75 transition'>
+      <SheetTrigger className='lg:hidden flex items-center gap-3 rounded-full bg-black border-transparent px-5 py-3 disabled:cursor-not-allowed disabled:opacity-50 text-white font-semibold hover:opacity-75 transition'>
         Filters
         <BsPlus size={20} />
       </SheetTrigger>
