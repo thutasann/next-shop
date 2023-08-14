@@ -29,7 +29,6 @@ async function BlurImage({
 }: // @ts-ignore
 IBlurImage): any {
   const myBlurDataUrl = await getBase64(src)
-
   return (
     <Image
       {...props}

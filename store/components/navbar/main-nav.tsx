@@ -27,7 +27,7 @@ function MainNav({ data }: IMainNav) {
           href={route.href}
           className={cn(
             'text-sm font-medium transition-colors hover:text-primary hover:underline focus:outline-none focus:underline',
-            route.active ? 'text-black dark:text-white' : 'text-muted-foreground'
+            route.active ? 'text-black' : 'text-muted-foreground'
           )}
         >
           {route.label}

@@ -13,7 +13,7 @@ function Billboard({ data }: IBillboard) {
         <BlurImage src={data?.imageUrl} priority fetchPriority='high' fill alt='billbaord' />
         <div className='h-full w-full flex flex-col justify-center items-center text-center gap-y-8'>
           <div className='absolute font-bold text-3xl sm:text-5xl lg:text-6xl sm:max-w-xl max-w-xs'>
-            <h1 className='text-white'>{data.label}</h1>
+            <h1 className='text-slate-800'>{data.label}</h1>
           </div>
         </div>
       </div>
