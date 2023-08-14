@@ -3,6 +3,7 @@ import Link from 'next/link'
 import React, { Fragment } from 'react'
 import Container from '../ui/container'
 import MainNav from './main-nav'
+import Mobilenav from './mobile-nav'
 import NavActions from './nav-actions'
 
 export const revalidate = 30
@@ -22,6 +23,9 @@ async function Navbar() {
               ALLUNEED
             </Link>
             <MainNav data={categories} />
+            <div className='block md:hidden ml-3'>
+              <Mobilenav categories={categories} />
+            </div>
             <NavActions />
           </div>
         </Container>

@@ -20,7 +20,7 @@ function MainNav({ data }: IMainNav) {
   }))
 
   return (
-    <div className='mx-6 flex items-center space-x-4 lg:space-x-6'>
+    <div className='hidden md:flex mx-6  items-center space-x-4 lg:space-x-6'>
       {routes?.map(route => (
         <Link
           key={route.href}
