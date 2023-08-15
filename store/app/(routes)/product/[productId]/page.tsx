@@ -4,6 +4,8 @@ import Gallery from '@/components/gallery'
 import ProductInfo from '@/components/gallery/product-info'
 import ProductList from '@/components/product/product-list'
 import Container from '@/components/ui/container'
+import Counter from '@/components/ui/counter'
+import OptimisticCounter from '@/components/ui/optimistic-counter'
 import React from 'react'
 
 interface IProductPage {
@@ -12,12 +14,23 @@ interface IProductPage {
   }
 }
 
+const DOMAIN_URL = process.env.NEXT_PUBLIC_DOMAIN_URL
+
 async function ProductPage({ params }: IProductPage) {
   const product = await getProduct(params.productId)
 
   const suggestedProducts = await getProducts({
     categoryId: product?.category.id,
   })
+
+  const res = await fetch(`${DOMAIN_URL}api/likes`, {
+    cache: 'no-cache',
+    next: {
+      tags: ['likes'],
+    },
+  })
+
+  const { likes } = await res.json()
 
   return (
     <div className='bg-white'>
@@ -29,6 +42,9 @@ async function ProductPage({ params }: IProductPage) {
               <ProductInfo data={product} />
             </div>
           </div>
+          <hr className='my-10' />
+          <h3 className='font-bold text-2xl mb-3'>Total likes </h3>
+          <OptimisticCounter likes={likes} />
           <hr className='my-10' />
           <ProductList title='Related Items' items={suggestedProducts} />
         </div>

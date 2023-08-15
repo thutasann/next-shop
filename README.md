@@ -7,10 +7,11 @@ This is the Ecommerce Web app including Admin Dashboard
 - nextjs (app dir)
 - prisma
 - mongodb
+- stripe
 - clerk
 - shadcn-ui
 - tailwind
-- stripe
+- zustand
 
 ## Preview URL:
 
