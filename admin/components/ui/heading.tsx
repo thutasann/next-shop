@@ -1,3 +1,5 @@
+'use client'
+
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import { BiSolidChevronLeft } from 'react-icons/bi'

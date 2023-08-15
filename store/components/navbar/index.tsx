@@ -6,8 +6,6 @@ import MainNav from './main-nav'
 import Mobilenav from './mobile-nav'
 import NavActions from './nav-actions'
 
-export const revalidate = 30
-
 async function Navbar() {
   const categories = await getCategories()
 
