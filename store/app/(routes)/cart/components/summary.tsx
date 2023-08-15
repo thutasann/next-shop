@@ -1,17 +1,23 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Button from '@/components/ui/button'
 import Currency from '@/components/ui/currency'
 import { toast } from 'react-hot-toast'
 import { useCart } from '@/hooks/use-cart'
 import axios from 'axios'
+import { Loader } from '@/components/ui/loader'
 
 const Summary = () => {
+  const [ismounted, setIsMounted] = useState(false)
   const searchParams = useSearchParams()
   const items = useCart(state => state.items)
   const removeAll = useCart(state => state.removeAll)
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
   useEffect(() => {
     if (searchParams.get('success')) {
@@ -34,6 +40,14 @@ const Summary = () => {
     })
 
     window.location = response.data.url
+  }
+
+  if (!ismounted) {
+    return (
+      <div className='mt-16 rounded-lg bg-gray-50 px-4 py-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8 flex items-center justify-center'>
+        <Loader />
+      </div>
+    )
   }
 
   return (

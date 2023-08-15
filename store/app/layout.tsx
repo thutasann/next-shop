@@ -5,6 +5,8 @@ import Footer from '@/components/footer'
 import Navbar from '@/components/navbar'
 import ModalProvider from '@/providers/modal-provider'
 import ToastProvider from '@/providers/toast-prrovider'
+import ProgressBar from '@/components/ui/progress-bar'
+import ScrollToTop from '@/components/ui/scroll-to-top'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -40,6 +42,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={inter.className}>
         <ModalProvider />
         <ToastProvider />
+        <ProgressBar />
+        <ScrollToTop />
         {/* @ts-ignore */}
         <Navbar />
         {children}

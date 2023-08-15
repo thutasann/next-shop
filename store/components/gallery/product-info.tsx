@@ -1,16 +1,24 @@
 'use client'
 
 import { Product } from '@/types'
-import React from 'react'
+import React, { MouseEventHandler } from 'react'
 import Button from '../ui/button'
 import Currency from '../ui/currency'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
+import { useCart } from '@/hooks/use-cart'
 
 interface IProductInfo {
   data: Product
 }
 
 function ProductInfo({ data }: IProductInfo) {
+  const cart = useCart()
+
+  const handleAddToCart: MouseEventHandler<HTMLButtonElement> = event => {
+    event.stopPropagation()
+    cart.addItem(data)
+  }
+
   return (
     <div>
       <h1 className='text-3xl font-bold text-gray-900'>{data.name}</h1>
@@ -34,7 +42,7 @@ function ProductInfo({ data }: IProductInfo) {
         />
       </div>
       <div className='mt-7 flex items-center gap-x-3'>
-        <Button className='flex items-center gap-x-3'>
+        <Button className='flex items-center gap-x-3' onClick={handleAddToCart}>
           Add to cart
           <AiOutlineShoppingCart className='w-6 h-6' />
         </Button>
