@@ -16,6 +16,10 @@ export const metadata: Metadata = {
   icons: {
     icon: '/logo.png',
   },
+  authors: {
+    name: 'thuta sann',
+    url: 'http://thutadev.vercel.app/',
+  },
   openGraph: {
     images: '/alluneed-og.webp',
     type: 'website',

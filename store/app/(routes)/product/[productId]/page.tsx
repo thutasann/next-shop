@@ -6,6 +6,7 @@ import ProductList from '@/components/product/product-list'
 import Container from '@/components/ui/container'
 import Counter from '@/components/ui/counter'
 import OptimisticCounter from '@/components/ui/optimistic-counter'
+import { Metadata, ResolvingMetadata } from 'next'
 import React from 'react'
 
 interface IProductPage {
@@ -15,6 +16,31 @@ interface IProductPage {
 }
 
 const DOMAIN_URL = process.env.NEXT_PUBLIC_DOMAIN_URL
+
+export async function generateMetadata({ params }: IProductPage, parent?: ResolvingMetadata): Promise<Metadata> {
+  const product = await getProduct(params.productId)
+  return {
+    title: product.name,
+    openGraph: {
+      images: product.images[0].url,
+      type: 'website',
+      url: `https://alluneed.vercel.app/product/${product.id}`,
+      locale: 'en',
+      title: `${product.name} | AllUNeed Ecommece`,
+      description: 'This is the Ecommerce named ALLUNEED',
+      siteName: 'AllUNeed',
+      countryName: 'Myanmar',
+      alternateLocale: 'eng',
+    },
+    twitter: {
+      title: `${product.name} | AllUNeed Ecommece`,
+      description: 'This is the Ecommerce named ALLUNEED',
+      card: 'summary_large_image',
+      site: '@thutasann3',
+      images: product.images[0].url,
+    },
+  }
+}
 
 async function ProductPage({ params }: IProductPage) {
   const product = await getProduct(params.productId)
