@@ -45,7 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang='en'>
       <body className={inter.className}>
-        <Partytown debug={true} forward={['dataLayer.push']} />
+        {/* <Partytown debug={true} forward={['dataLayer.push']} /> */}
         <ModalProvider />
         <ToastProvider />
         <ProgressBar />
