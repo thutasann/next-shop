@@ -17,7 +17,7 @@ interface IProductPage {
 
 const DOMAIN_URL = process.env.NEXT_PUBLIC_DOMAIN_URL
 
-export async function generateMetadata({ params }: IProductPage, parent?: ResolvingMetadata): Promise<Metadata> {
+export async function generateMetadata({ params }: IProductPage): Promise<Metadata> {
   const product = await getProduct(params.productId)
   return {
     title: product.name,

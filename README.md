@@ -1,6 +1,6 @@
 # NEXTJS-ECOMMERCE
 
-This is the Ecommerce Web app including Admin Dashboard
+This is the mini Ecommerce store PWA including Admin Dashboard
 
 ## Tech Stacks
 

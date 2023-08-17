@@ -1,0 +1,14 @@
+# *
+User-agent: *
+Disallow: /404
+
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: http://alluneed.vercel.app/
+
+# Sitemaps
+Sitemap: http://alluneed.vercel.app/sitemap.xml
+Sitemap: http://alluneed.vercel.app/server-sitemap.xml
