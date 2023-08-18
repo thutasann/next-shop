@@ -12,6 +12,7 @@ interface IBlurImage {
   quality?: number
   laoding?: 'lazy' | 'eager'
   fetchPriority?: 'auto' | 'high' | 'low'
+  isExternal?: boolean
 }
 
 async function BlurImage({
@@ -25,6 +26,7 @@ async function BlurImage({
   laoding,
   quality,
   fetchPriority,
+  isExternal,
   ...props
 }: // @ts-ignore
 IBlurImage): any {

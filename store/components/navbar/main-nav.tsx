@@ -33,6 +33,15 @@ function MainNav({ data }: IMainNav) {
           {route.label}
         </Link>
       ))}
+      <Link
+        href='/beers'
+        className={cn(
+          'text-sm font-medium transition-colors hover:text-primary hover:underline focus:outline-none focus:underline',
+          pathname === '/beers' ? 'text-black' : 'text-muted-foreground'
+        )}
+      >
+        Beers
+      </Link>
     </div>
   )
 }

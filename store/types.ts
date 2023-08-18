@@ -37,3 +37,10 @@ export interface Color {
   name: string
   value: string
 }
+
+export interface Beer {
+  id: number
+  name: string
+  tagline: string
+  image_url: string
+}

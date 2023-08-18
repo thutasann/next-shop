@@ -7,7 +7,6 @@ import ModalProvider from '@/providers/modal-provider'
 import ToastProvider from '@/providers/toast-prrovider'
 import ProgressBar from '@/components/ui/progress-bar'
 import ScrollToTop from '@/components/ui/scroll-to-top'
-import { Partytown } from '@builder.io/partytown/react'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -45,7 +44,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang='en'>
       <body className={inter.className}>
-        {/* <Partytown debug={true} forward={['dataLayer.push']} /> */}
         <ModalProvider />
         <ToastProvider />
         <ProgressBar />

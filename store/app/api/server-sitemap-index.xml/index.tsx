@@ -14,7 +14,7 @@ export const getServerSideProps = async (ctx: any, { params }: IProductPage) => 
 
   const fields = [
     {
-      loc: `https://alluneed.vercel.app`,
+      loc: `https://alluneed.vercel.app/prodcut/${dynamicRoutes}`,
       lastmod: new Date().toISOString(),
     },
   ]
