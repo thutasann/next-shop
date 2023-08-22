@@ -7,6 +7,7 @@ import ModalProvider from '@/providers/modal-provider'
 import ToastProvider from '@/providers/toast-prrovider'
 import ProgressBar from '@/components/ui/progress-bar'
 import ScrollToTop from '@/components/ui/scroll-to-top'
+import ReactQueryProvider from '@/providers/react-query-provider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -50,7 +51,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ScrollToTop />
         {/* @ts-ignore */}
         <Navbar />
-        {children}
+        <ReactQueryProvider>{children}</ReactQueryProvider>
         <Footer />
       </body>
     </html>

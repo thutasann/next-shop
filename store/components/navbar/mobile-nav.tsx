@@ -28,6 +28,12 @@ function Mobilenav({ categories }: IMobileNav) {
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>{cate.name}</NavigationMenuLink>
               </Link>
             ))}
+            <Link href={`/beers`} legacyBehavior passHref>
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>Beers</NavigationMenuLink>
+            </Link>
+            <Link href={`/posts`} legacyBehavior passHref>
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>Posts</NavigationMenuLink>
+            </Link>
           </NavigationMenuContent>
         </NavigationMenuItem>
       </NavigationMenuList>

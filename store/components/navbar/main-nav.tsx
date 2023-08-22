@@ -42,6 +42,15 @@ function MainNav({ data }: IMainNav) {
       >
         Beers
       </Link>
+      <Link
+        href='/posts'
+        className={cn(
+          'text-sm font-medium transition-colors hover:text-primary hover:underline focus:outline-none focus:underline',
+          pathname === '/posts' ? 'text-black' : 'text-muted-foreground'
+        )}
+      >
+        Posts
+      </Link>
     </div>
   )
 }

@@ -44,3 +44,10 @@ export interface Beer {
   tagline: string
   image_url: string
 }
+
+export type PostProps = {
+  userId: number
+  id: number
+  title: string
+  body: string
+}
